@@ -2,5 +2,6 @@
 
 require './config/environment.rb'
 require './lib/mealmaker.rb'
+# require './app/models/meal.rb'
 
 Mealmaker.new.start

@@ -18,7 +18,7 @@ class Mealmaker
 	end
 
 	def generate_random_list
-		puts Meal.all.meal_name
+		Meal.list_all_meals
 	end
   
 	def start
