@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 3) do
 
   create_table "ingridents", force: :cascade do |t|
     t.string "ingrident_name"
@@ -20,5 +20,13 @@ ActiveRecord::Schema.define(version: 2) do
   create_table "meals", force: :cascade do |t|
     t.string "meal_name"
   end
+
+  create_table "meals_ingridents", id: false, force: :cascade do |t|
+    t.integer "meals_id"
+    t.integer "ingridents_id"
+  end
+
+  add_index "meals_ingridents", ["ingridents_id"], name: "index_meals_ingridents_on_ingridents_id"
+  add_index "meals_ingridents", ["meals_id"], name: "index_meals_ingridents_on_meals_id"
 
 end
