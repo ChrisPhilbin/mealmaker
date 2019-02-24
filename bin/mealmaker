@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require './config/environment.rb'
+require './lib/mealmaker.rb'
+
+Mealmaker.new.start
