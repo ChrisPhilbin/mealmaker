@@ -18,6 +18,10 @@ class Mealmaker
 	end
 
 	def generate_random_list
+		Meal.make_random_list
+	end
+
+	def view_all_items
 		Meal.list_all_meals
 	end
   
