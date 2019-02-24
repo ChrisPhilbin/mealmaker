@@ -5,6 +5,21 @@ class Mealmaker
 	def goodbye
 		puts "See you later! Goodbye!"
 	end
+
+	def enter_new
+		puts "Enter the name of the meal you would like to add:"
+		new_meal = gets.chomp.downcase
+		if Meal.exists?(meal_name: new_meal)
+			puts "Meal already exists in the database!"
+		else
+			meal = Meal.new(meal_name: new_meal)
+			meal.save
+		end
+	end
+
+	def generate_random_list
+		puts Meal.all.meal_name
+	end
   
 	def start
 		input = ''
