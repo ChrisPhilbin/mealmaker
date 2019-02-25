@@ -24,6 +24,13 @@ class Mealmaker
 	def view_all_items
 		Meal.list_all_meals
 	end
+
+	def remove_from_list
+		puts "Enter the name of the meal you would like to remove from the list"
+		remove_meal = gets.chomp.downcase
+		meal_to_remove = Meal.find_by(name: remove_meal)
+		meal_to_remove.delete
+	end
   
 	def start
 		input = ''
