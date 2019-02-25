@@ -25,11 +25,26 @@ class Mealmaker
 		Meal.list_all_meals
 	end
 
+	# def meal_exists?(meal)
+	# 	Meal.exists?(meal_name: meal)
+	# end
+
 	def remove_from_list
-		puts "Enter the name of the meal you would like to remove from the list"
-		remove_meal = gets.chomp.downcase
-		meal_to_remove = Meal.find_by(name: remove_meal)
-		meal_to_remove.delete
+		i = false
+		while i != true
+			puts "Enter the name of the meal you would like to remove from the list or 'e' to exit"
+			remove_meal = gets.chomp.downcase
+			if Meal.exists?(meal_name: remove_meal)
+				meal_to_remove = Meal.find_by(meal_name: remove_meal)
+				meal_to_remove.delete
+				puts "Success! The meal #{meal_to_remove.meal_name} has been removed!"
+				i = true
+			elsif remove_meal == "e"
+				break
+			else
+				puts "Sorry, that meal doesn't exist"
+			end
+		end
 	end
   
 	def start
