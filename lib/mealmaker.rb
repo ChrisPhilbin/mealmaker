@@ -6,6 +6,18 @@ class Mealmaker
 		puts "See you later! Goodbye!"
 	end
 
+	def ask_for_ingridents
+		i = ''
+		i = gets.chomp.downcase
+		while i != "e"
+			puts "Enter the name of the ingrident you would like to enter:"
+			ingrident = gets.chomp
+			ingrident = Ingriedent.new(ingrident_name: ingriedent)
+			ingrident.save
+			puts "Saved!"
+		end
+	end
+
 	def enter_new
 		puts "Enter the name of the meal you would like to add:"
 		new_meal = gets.chomp.downcase
@@ -15,6 +27,13 @@ class Mealmaker
 			meal = Meal.new(meal_name: new_meal)
 			meal.save
 			puts "Success! #{meal.meal_name} has been saved to the database!"
+			puts "Would you like to enter ingridents for this meal?" (y/n)
+			input = gets.chomp.downcase
+			if input == "y"
+				ask_for_ingridents
+			elsif input == "n"
+				break
+			end				
 		end
 	end
 
