@@ -7,7 +7,7 @@ class Meal < ActiveRecord::Base
 		end
 	end
 
-	def self.make_random_list
+	def make_random_list
 		self.list_all_meals.shuffle
 	end
 end

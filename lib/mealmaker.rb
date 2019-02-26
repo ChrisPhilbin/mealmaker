@@ -14,6 +14,7 @@ class Mealmaker
 		else
 			meal = Meal.new(meal_name: new_meal)
 			meal.save
+			puts "Success! #{meal.meal_name} has been saved to the database!"
 		end
 	end
 

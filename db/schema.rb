@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "ingridents", force: :cascade do |t|
     t.string "ingrident_name"
   end
+
+  create_table "ingridents_meals", id: false, force: :cascade do |t|
+    t.integer "meals_id"
+    t.integer "ingridents_id"
+  end
+
+  add_index "ingridents_meals", ["ingridents_id"], name: "index_ingridents_meals_on_ingridents_id"
+  add_index "ingridents_meals", ["meals_id"], name: "index_ingridents_meals_on_meals_id"
 
   create_table "meals", force: :cascade do |t|
     t.string "meal_name"
