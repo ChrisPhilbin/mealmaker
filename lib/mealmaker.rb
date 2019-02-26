@@ -14,6 +14,7 @@ class Mealmaker
 			ingrident = gets.chomp
 			ingrident = Ingriedent.new(ingrident_name: ingriedent)
 			ingrident.save
+			#need to associate each ingrident to the meal that was just added
 			puts "Saved!"
 		end
 	end
